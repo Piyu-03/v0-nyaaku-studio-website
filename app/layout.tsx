@@ -79,7 +79,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-    generator: 'v0.app'
 };
 
 export const viewport: Viewport = {
