@@ -1,7 +1,5 @@
-"use client";
-
 import React from "react"
-
+import Link from "next/link";
 import { Instagram, Heart } from "lucide-react";
 
 const currentYear = new Date().getFullYear();
@@ -9,15 +7,15 @@ const currentYear = new Date().getFullYear();
 const footerLinks = [
   {
     label: "Services",
-    href: "#services",
+    href: "/services",
   },
   {
     label: "Founder",
-    href: "#founder",
+    href: "/founder",
   },
   {
     label: "Contact",
-    href: "#contact",
+    href: "/contact",
   },
 ];
 
@@ -35,19 +33,6 @@ const socialLinks = [
 ];
 
 export function Footer() {
-  const handleNavClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    href: string
-  ) => {
-    if (href.startsWith("#")) {
-      e.preventDefault();
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  };
-
   return (
     <footer className="relative py-12 md:py-16 border-t border-border/30">
       {/* Subtle gradient overlay */}
@@ -57,12 +42,12 @@ export function Footer() {
         <div className="grid md:grid-cols-3 gap-8 md:gap-12 mb-12">
           {/* Brand */}
           <div>
-            <a href="/" className="inline-block text-2xl font-bold mb-4">
+            <Link href="/" className="inline-block text-2xl font-bold mb-4">
               <span className="bg-gradient-to-r from-[#a855f7] to-[#22d3ee] bg-clip-text text-transparent">
                 NYAAKU
               </span>
               <span className="text-foreground"> STUDIO</span>
-            </a>
+            </Link>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
               Futuristic creative post-production studio crafting visual stories
               for the digital generation.
@@ -75,13 +60,12 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
                     className="text-sm text-muted-foreground hover:text-[#a855f7] transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

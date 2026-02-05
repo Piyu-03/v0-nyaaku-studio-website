@@ -1,7 +1,8 @@
 import React from "react"
 import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
-//import { Analytics } from "@vercel/analytics/next";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -96,13 +97,35 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "CreativeWorkSeries",
+              name: "NYAAKU STUDIO",
+              description:
+                "Futuristic creative post-production studio crafting visual stories for the digital generation.",
+              url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://nyaakustudio.com",
+              founder: {
+                "@type": "Person",
+                name: "PIYUSH DAS",
+              },
+              sameAs: [
+                "https://www.instagram.com/nyaakustudios",
+                "https://www.instagram.com/irealpiyush",
+              ],
+            }),
+          }}
+        />
+      </head>
       <body
         className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} font-sans antialiased`}
       >
+        <Header />
         {children}
-
-        {/*<Analytics />*/}
-
+        <Footer />
       </body>
     </html>
   );
