@@ -5,8 +5,8 @@ import { Instagram, ExternalLink } from "lucide-react";
 const socialLinks = [
   {
     name: "NYAAKU Studios",
-    handle: "@nyaakustudios",
-    url: "https://www.instagram.com/nyaakustudios",
+    handle: "@nyaakustudio",
+    url: "https://www.instagram.com/nyaakustudio",
     description: "Official studio page - See our latest work",
     gradient: "from-[#833ab4] via-[#fd1d1d] to-[#fcb045]",
   },

@@ -22,7 +22,7 @@ const footerLinks = [
 const socialLinks = [
   {
     label: "NYAAKU Studios",
-    href: "https://www.instagram.com/nyaakustudios",
+    href: "https://www.instagram.com/nyaakustudio",
     icon: Instagram,
   },
   {

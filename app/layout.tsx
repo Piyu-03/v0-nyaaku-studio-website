@@ -113,7 +113,7 @@ export default function RootLayout({
                 name: "PIYUSH DAS",
               },
               sameAs: [
-                "https://www.instagram.com/nyaakustudios",
+                "https://www.instagram.com/nyaakustudio",
                 "https://www.instagram.com/irealpiyush",
               ],
             }),
