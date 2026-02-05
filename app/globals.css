@@ -3,33 +3,41 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* NYAAKU STUDIO - Futuristic Dark Theme */
+/* NYAAKU STUDIO - Futuristic Premium Theme */
 :root {
-  --background: oklch(0.08 0.01 270);
+  /* Deep Void Base */
+  --background: oklch(0.05 0.01 270);
   --foreground: oklch(0.98 0 0);
-  --card: oklch(0.12 0.02 270);
+
+  /* Premium Cards */
+  --card: oklch(0.1 0.02 270);
   --card-foreground: oklch(0.98 0 0);
-  --popover: oklch(0.1 0.015 270);
+  --popover: oklch(0.1 0.02 270);
   --popover-foreground: oklch(0.98 0 0);
-  --primary: oklch(0.7 0.2 280);
+
+  /* Neon Accents - Punchier & Deeper */
+  --primary: oklch(0.65 0.22 280);
+  /* Deep Electric Purple */
   --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.65 0.18 195);
-  --secondary-foreground: oklch(0.08 0.01 270);
-  --muted: oklch(0.2 0.02 270);
-  --muted-foreground: oklch(0.7 0 0);
-  --accent: oklch(0.65 0.22 265);
+  --secondary: oklch(0.7 0.18 190);
+  /* Cyan */
+  --secondary-foreground: oklch(0.05 0.01 270);
+  --muted: oklch(0.15 0.02 270);
+  --muted-foreground: oklch(0.65 0.02 270);
+  /* Metallic Grey */
+  --accent: oklch(0.6 0.2 260);
   --accent-foreground: oklch(0.98 0 0);
+
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.25 0.04 270);
-  --input: oklch(0.18 0.02 270);
-  --ring: oklch(0.7 0.2 280);
-  --chart-1: oklch(0.7 0.2 280);
-  --chart-2: oklch(0.65 0.18 195);
-  --chart-3: oklch(0.6 0.22 265);
-  --chart-4: oklch(0.75 0.15 300);
-  --chart-5: oklch(0.55 0.2 240);
-  --radius: 0.75rem;
+  --border: oklch(0.2 0.04 270);
+  --input: oklch(0.15 0.02 270);
+  --ring: oklch(0.65 0.22 280);
+
+  --radius: 1rem;
+  /* Softer, more modern corners */
+
+  /* Sidebar & Charts */
   --sidebar: oklch(0.1 0.015 270);
   --sidebar-foreground: oklch(0.98 0 0);
   --sidebar-primary: oklch(0.7 0.2 280);
@@ -38,13 +46,17 @@
   --sidebar-accent-foreground: oklch(0.98 0 0);
   --sidebar-border: oklch(0.25 0.04 270);
   --sidebar-ring: oklch(0.7 0.2 280);
-  
+
+  --chart-1: oklch(0.65 0.22 280);
+  --chart-2: oklch(0.7 0.18 190);
+  --chart-3: oklch(0.6 0.2 260);
+  --chart-4: oklch(0.75 0.15 300);
+  --chart-5: oklch(0.55 0.2 240);
+
   /* Custom neon colors */
-  --neon-purple: oklch(0.7 0.2 280);
-  --neon-cyan: oklch(0.75 0.15 195);
-  --neon-blue: oklch(0.6 0.22 265);
-  --glow-purple: oklch(0.6 0.25 280 / 0.5);
-  --glow-cyan: oklch(0.65 0.2 195 / 0.5);
+  --neon-purple: oklch(0.65 0.22 280);
+  --neon-cyan: oklch(0.75 0.15 190);
+  --neon-blue: oklch(0.6 0.2 260);
 }
 
 @theme inline {
@@ -86,57 +98,115 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  
   /* Neon colors */
   --color-neon-purple: var(--neon-purple);
   --color-neon-cyan: var(--neon-cyan);
   --color-neon-blue: var(--neon-blue);
-  --color-glow-purple: var(--glow-purple);
-  --color-glow-cyan: var(--glow-cyan);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary-foreground;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in oklch, var(--primary), transparent 70%);
+    border-radius: 99px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
   }
 }
 
-/* Custom animations */
+/* Advanced Animations */
 @keyframes glow-pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
+
+  0%,
+  100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+
+  50% {
+    opacity: 0.7;
+    filter: brightness(1.2);
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
 }
 
 @keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @keyframes text-shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes slide-up-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .animate-glow-pulse {
-  animation: glow-pulse 2s ease-in-out infinite;
+  animation: glow-pulse 3s ease-in-out infinite;
 }
 
 .animate-float {
-  animation: float 3s ease-in-out infinite;
+  animation: float 4s ease-in-out infinite;
 }
 
 .animate-gradient {
   background-size: 200% 200%;
-  animation: gradient-shift 4s ease infinite;
+  animation: gradient-shift 5s ease infinite;
 }
 
 .animate-shimmer {
@@ -144,34 +214,68 @@
   animation: text-shimmer 3s linear infinite;
 }
 
-/* Glassmorphism utilities */
+.animate-slide-up {
+  animation: slide-up-fade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+  /* Important for initial state */
+}
+
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-400 {
+  animation-delay: 400ms;
+}
+
+.delay-500 {
+  animation-delay: 500ms;
+}
+
+/* Refined Glassmorphism */
 .glass {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .glass-strong {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Neon glow effects */
+.glass-premium {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Neon glow utility classes */
 .neon-glow-purple {
-  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4), 0 0 40px rgba(168, 85, 247, 0.2);
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.3), 0 0 60px rgba(168, 85, 247, 0.1);
 }
 
 .neon-glow-cyan {
-  box-shadow: 0 0 20px rgba(34, 211, 238, 0.4), 0 0 40px rgba(34, 211, 238, 0.2);
+  box-shadow: 0 0 30px rgba(34, 211, 238, 0.3), 0 0 60px rgba(34, 211, 238, 0.1);
 }
 
-.text-glow-purple {
-  text-shadow: 0 0 20px rgba(168, 85, 247, 0.6), 0 0 40px rgba(168, 85, 247, 0.4);
+.text-gradient-gold {
+  @apply bg-gradient-to-r from-[#bf953f] via-[#fcf6ba] to-[#b38728] bg-clip-text text-transparent;
 }
 
-.text-glow-cyan {
-  text-shadow: 0 0 20px rgba(34, 211, 238, 0.6), 0 0 40px rgba(34, 211, 238, 0.4);
+.text-gradient-neon {
+  @apply bg-gradient-to-r from-neon-purple via-neon-cyan to-neon-blue bg-clip-text text-transparent;
 }

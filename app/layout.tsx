@@ -1,7 +1,7 @@
 import React from "react"
 import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
+//import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -18,16 +18,15 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "NYAAKU STUDIO | Creative Post-Production Studio",
+    default: "NYAAKU STUDIO | Creative Digital Studio",
     template: "%s | NYAAKU STUDIO",
   },
   description:
-    "NYAAKU STUDIO is a futuristic creative post-production studio specializing in graphic design, video editing, reel editing, and digital post-production. Founded by PIYUSH DAS.",
+    "NYAAKU STUDIO is a futuristic creative studio specializing in graphic design, video editing, and reel editing. Founded by PIYUSH DAS.",
   keywords: [
     "graphic design",
     "video editing",
     "reel editing",
-    "post production",
     "creative studio",
     "digital design",
     "instagram reels",
@@ -35,6 +34,31 @@ export const metadata: Metadata = {
     "NYAAKU STUDIO",
     "PIYUSH DAS",
   ],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "NYAAKU STUDIO",
+    title: "NYAAKU STUDIO | Creative Digital Studio",
+    description:
+      "Crafting visual stories for the digital generation. Graphic design, video editing, & reel editing services.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "NYAAKU STUDIO - Creative Digital Studio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "NYAAKU STUDIO | Creative Digital Studio",
+    description:
+      "Crafting visual stories for the digital generation. Graphic design, video editing, & reel editing services.",
+    images: ["/og-image.jpg"],
+    creator: "@irealpiyush",
+  },
+
   authors: [{ name: "PIYUSH DAS" }],
   creator: "PIYUSH DAS",
   publisher: "NYAAKU STUDIO",
@@ -49,30 +73,7 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    siteName: "NYAAKU STUDIO",
-    title: "NYAAKU STUDIO | Creative Post-Production Studio",
-    description:
-      "Crafting visual stories for the digital generation. Graphic design, video editing, reel editing & post-production services.",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "NYAAKU STUDIO - Creative Post-Production Studio",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "NYAAKU STUDIO | Creative Post-Production Studio",
-    description:
-      "Crafting visual stories for the digital generation. Graphic design, video editing, reel editing & post-production services.",
-    images: ["/og-image.jpg"],
-    creator: "@irealpiyush",
-  },
+
   metadataBase: process.env.NEXT_PUBLIC_SITE_URL
     ? new URL(process.env.NEXT_PUBLIC_SITE_URL)
     : undefined,
@@ -99,7 +100,9 @@ export default function RootLayout({
         className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} font-sans antialiased`}
       >
         {children}
-        <Analytics />
+
+        {/*<Analytics />*/}
+
       </body>
     </html>
   );

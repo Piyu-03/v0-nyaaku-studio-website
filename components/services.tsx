@@ -1,6 +1,6 @@
 "use client";
 
-import { Palette, Film, Smartphone, Wand2 } from "lucide-react";
+import { Palette, Film, Smartphone } from "lucide-react";
 
 const services = [
   {
@@ -27,14 +27,7 @@ const services = [
     gradient: "from-[#22d3ee] to-[#6366f1]",
     glowColor: "rgba(34, 211, 238, 0.3)",
   },
-  {
-    icon: Wand2,
-    title: "Post Production",
-    description:
-      "Complete post-production services including VFX, motion graphics, audio mixing, and final polish to bring your vision to life.",
-    gradient: "from-[#10b981] to-[#22d3ee]",
-    glowColor: "rgba(16, 185, 129, 0.3)",
-  },
+
 ];
 
 export function Services() {
@@ -64,39 +57,39 @@ export function Services() {
           </p>
         </div>
 
-        {/* Services grid */}
+        {/* Services grid - Staggered Animation */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {services.map((service, index) => (
             <div
               key={service.title}
-              className="group relative"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="group relative animate-slide-up"
+              style={{ animationDelay: `${index * 150}ms` }}
             >
               {/* Card */}
               <div
-                className="relative h-full p-8 rounded-2xl glass-strong transition-all duration-500 hover:scale-[1.02]"
+                className="relative h-full p-8 rounded-2xl glass-premium transition-all duration-500 hover:scale-[1.03] hover:-translate-y-2 border border-white/5 group-hover:border-white/10"
                 style={{
                   boxShadow: `0 0 0 rgba(0,0,0,0), 0 0 40px ${service.glowColor}`,
                 }}
               >
                 {/* Icon */}
                 <div
-                  className={`inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient} mb-6 group-hover:scale-110 transition-transform duration-300`}
+                  className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 shadow-lg`}
                 >
-                  <service.icon className="w-7 h-7 text-white" />
+                  <service.icon className="w-8 h-8 text-white" />
                 </div>
 
                 {/* Content */}
-                <h3 className="text-xl md:text-2xl font-bold mb-3 text-foreground">
+                <h3 className="text-xl md:text-2xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed text-lg">
                   {service.description}
                 </p>
 
                 {/* Hover gradient border */}
                 <div
-                  className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-sm`}
+                  className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${service.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500 -z-10 blur-xl`}
                 />
               </div>
             </div>
