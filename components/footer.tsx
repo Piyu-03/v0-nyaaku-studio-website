@@ -9,15 +9,15 @@ const currentYear = new Date().getFullYear();
 const footerLinks = [
   {
     label: "Services",
-    href: "#services",
+    href: "/services",
   },
   {
     label: "Founder",
-    href: "#founder",
+    href: "/founder",
   },
   {
     label: "Contact",
-    href: "#contact",
+    href: "/contact",
   },
 ];
 
