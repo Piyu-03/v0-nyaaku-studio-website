@@ -19,6 +19,10 @@ const footerLinks = [
     label: "Contact",
     href: "/contact",
   },
+  {
+    label: "Terms & Conditions",
+    href: "/terms-and-conditions.pdf",
+  },
 ];
 
 const socialLinks = [
