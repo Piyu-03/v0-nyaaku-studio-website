@@ -27,14 +27,7 @@ const services = [
     gradient: "from-[#22d3ee] to-[#6366f1]",
     glowColor: "rgba(34, 211, 238, 0.3)",
   },
-  {
-    icon: Wand2,
-    title: "Post Production",
-    description:
-      "Complete post-production services including VFX, motion graphics, audio mixing, and final polish to bring your vision to life.",
-    gradient: "from-[#10b981] to-[#22d3ee]",
-    glowColor: "rgba(16, 185, 129, 0.3)",
-  },
+  
 ];
 
 export function Services() {
