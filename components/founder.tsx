@@ -23,12 +23,21 @@ export function Founder() {
               <div className="absolute inset-8 rounded-full border border-[#22d3ee]/20 animate-pulse delay-500" />
 
               {/* Main image container */}
-              <div className="absolute inset-12 rounded-full glass-strong overflow-hidden neon-glow-purple">
-                <Image
-  src="/piyush.jpg"
-  alt="Piyush Das"
-  fill
-  className="rounded-full object-cover"
+              <div className="absolute inset-12 rounded-full overflow-hidden bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_0_80px_rgba(168,85,247,0.35)]">
+                <div className="relative w-full h-full">
+  <Image
+    src="/piyush.jpg"
+    alt="Piyush Das"
+    fill
+    className="rounded-full object-cover scale-105 transition-transform duration-700 hover:scale-110"
+  />
+
+  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/20 via-transparent to-transparent" />
+
+  <div className="absolute top-6 left-8 w-24 h-24 rounded-full bg-white/25 blur-2xl" />
+
+  <div className="absolute inset-0 rounded-full border border-white/20" />
+</div>
 />
               </div>
 
