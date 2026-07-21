@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Sparkles, Zap, Target } from "lucide-react";
 
 export function Founder() {
@@ -23,12 +24,12 @@ export function Founder() {
 
               {/* Main image container */}
               <div className="absolute inset-12 rounded-full glass-strong overflow-hidden neon-glow-purple">
-                <div className="w-full h-full bg-gradient-to-br from-[#a855f7]/20 via-[#6366f1]/20 to-[#22d3ee]/20 flex items-center justify-center">
-                  {/* Placeholder initials */}
-                  <span className="text-6xl md:text-7xl font-bold bg-gradient-to-br from-[#a855f7] via-[#6366f1] to-[#22d3ee] bg-clip-text text-transparent">
-                    PD
-                  </span>
-                </div>
+                <Image
+  src="/piyush.jpg"
+  alt="Piyush Das"
+  fill
+  className="rounded-full object-cover"
+/>
               </div>
 
               {/* Floating badges */}
